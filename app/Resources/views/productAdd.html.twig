@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Lato:300,400,700') }}" />
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+       <body>
+    <div class="wrapper">
+        <div class="container">
+             <div class="row">
+                     <h1>Formulaire Insertion Produit</h1>
+             </div>
+           {{ form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+           
+        
+           {% if form.nomproduit is defined %}
+              <div class="row">
+                    {% set class=''%}
+               <div class="form-group" {{class}} >
+                   {{ form_label(form.nomproduit, null, {
+                        'label': 'Nnom du produit',
+                        'label_attr': {'class': 'col-sm-3 control-label'}
+                    }) }}
+                    
+                        <div class="col-sm-8">
+                            {{ form_widget(form.nomproduit, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                
+                      
+                </div>
+                </div>
+                       
+                       {% if not form.nomproduit.vars.valid %}
+                               {% set class = 'has-error' %}
+                  <div class="row">           
+                  <div class="form-group">
+                  <div class="alert alert-danger" role="alert">
+                         {{ form_errors(form.nomproduit) }}
+                       
+                   </div>
+                   </div>
+                   </div>
+                       {% endif %}
+                                 
+            {% endif %}
+              {% if form.prix is defined %} 	
+                <div class="row">
+               <div class="form-group">
+                   {{ form_label(form.prix, null, {
+                        'label': 'Prix du produit (CA$)',
+                        'label_attr': {'class': 'col-sm-3 control-label'}
+                    }) }}
+                   
+                  <div class="col-sm-8">
+                    {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+                  </div>
+                  </div>
+                   {% if not form.prix.vars.valid %}
+                               {% set class = 'has-error' %}
+                   <div class="row">             
+                  <div class="form-group">
+                  <div class="alert alert-danger" role="alert">
+                         {{ form_errors(form.prix) }}
+                 </div>
+                 </div>
+                 </div>
+                       {% endif %}
+                {% endif %}
+                   {% if form.description is defined %} 
+                <div class="row">
+               <div class="form-group">
+                    {{ form_label(form.description, null, {
+                        'label': 'Description du produit',
+                        'label_attr': {'class': 'col-sm-3 control-label'}
+                    }) }}
+                   
+                     <div class="col-sm-8">
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control','rows':4}}) }}
+                    
+                </div>
+                 </div>
+                    </div>
+                     {% if not form.description.vars.valid %}
+                               {% set class = 'has-error' %}
+                   <div class="row">             
+                  <div class="form-group">
+                  <div class="alert alert-danger" role="alert">
+                         {{ form_errors(form.description) }}
+                 </div>
+                 </div>
+                 </div>
+                       {% endif %}
+                  {% endif %}
+                <div class="row">
+               <div class="form-group">
+            <input id="submit" name="submit" type="submit" value="Sauvegarder" class="btn btn-primary">
+             </div>
+             </div>
+                
+           {{ form_end(form)}}
+        </div>
+    </div>
+   {% block javascripts %}
+      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   {% endblock %}
+    </body>
+</html>

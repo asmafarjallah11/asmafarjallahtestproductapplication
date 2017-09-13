@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 sept. 2017, 03:39:16
+    Author     : AZUSPC
+*/
+body
+{
+  background-color: #1d84c3;
+} 
+.form-group
+{
+    margin-top: 15px;
+}
+.container
+{
+  margin-top: 50px;	
+  background-color: #fff;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+}
+.wrapper
+{
+  background-color: #1d84c3;
+} 
+
+input[type=submit]{
+    margin-left: 30px;
+    }
+h1 {
+    text-align: center;
+   }
+ .alert
+{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    max-width: 600px;
+    
+}
+.alert li
+{
+   list-style:none;
+}
+
+        
